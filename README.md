@@ -15,8 +15,17 @@
   <a href="https://github.com/rsksmart/express-did-auth/actions?query=workflow%3Aci">
     <img src="https://github.com/rsksmart/express-did-auth/workflows/ci/badge.svg" />
   </a>
+  <a href="https://lgtm.com/projects/g/rsksmart/express-did-auth/context:javascript">
+    <img src="https://img.shields.io/lgtm/grade/javascript/github/rsksmart/express-did-auth" />
+  </a>
+  <a href='https://coveralls.io/github/rsksmart/express-did-auth?branch=main'>
+    <img src='https://coveralls.io/repos/github/rsksmart/express-did-auth/badge.svg?branch=main' alt='Coverage Status' />
+  </a>
   <a href="https://badge.fury.io/js/%40rsksmart%2Fexpress-did-auth">
     <img src="https://badge.fury.io/js/%40rsksmart%2Fexpress-did-auth.svg" alt="npm" />
+  </a>
+  <a href="https://hits.seeyoufarm.com">
+    <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Frsksmart%2Fexpress-did-auth&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/>
   </a>
 </p>
 
