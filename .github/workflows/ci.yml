@@ -18,5 +18,9 @@ jobs:
       with:
         node-version: 10.x
     - run: npm i
-    - run: npm run lint
-    - run: npm test
+    - run: npm run lint:ci
+    - run: npm run test:ci
+    - name: Coveralls
+      uses: coverallsapp/github-action@master
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
