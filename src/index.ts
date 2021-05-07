@@ -54,6 +54,10 @@ export default function setupAppFactory (config: ExpressDidAuthConfig) {
         res.status(403)
         res.send(CSRF_ERROR_MESSAGE)
       })
+
+      app.get('/refresh-csrf', (req, res) => {
+        res.status(200).send(req.csrfToken())
+      })
     }
 
     const authMiddleware = expressMiddlewareFactory(state, config)

@@ -1,6 +1,6 @@
 {
   "name": "@rsksmart/express-did-auth",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Authentication with Verifiable Credentials for Express.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -48,15 +48,13 @@
     "js-sha3": "^0.8.0"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.0",
-    "@typescript-eslint/eslint-plugin": "^3.3.0",
-    "@typescript-eslint/parser": "^3.3.0",
     "@rsksmart/rif-id-ethr-did": "0.1.0",
     "@rsksmart/rif-id-mnemonic": "0.1.0",
+    "@types/jest": "^26.0.0",
     "@types/mockdate": "^2.0.0",
     "@types/supertest": "^2.0.10",
-    "mockdate": "^3.0.2",
-    "supertest": "^5.0.0",
+    "@typescript-eslint/eslint-plugin": "^3.3.0",
+    "@typescript-eslint/parser": "^3.3.0",
     "eslint": "^7.3.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.21.2",
@@ -67,6 +65,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest": "^26.1.0",
     "jest-junit": "^11.0.1",
+    "mockdate": "^3.0.2",
+    "supertest": "^5.0.0",
     "ts-jest": "^26.1.0",
     "typescript": "^3.9.5"
   }
