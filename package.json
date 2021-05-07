@@ -1,6 +1,6 @@
 {
   "name": "@rsksmart/express-did-auth",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Authentication with Verifiable Credentials for Express.js",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
