@@ -1,5 +1,4 @@
 import { JWTPayload, Signer } from 'did-jwt'
-import { CredentialRequestInput } from 'daf-selective-disclosure'
 import { RequestCounter } from './classes/request-counter'
 import { SessionManager } from './classes/session-manager'
 
@@ -86,4 +85,28 @@ export type SignupBusinessLogic = (payload: SignupChallengeResponsePayload) => P
 export interface AuthenticationConfig extends TokenConfig {
   accessTokenExpirationTime?: number
   loginMessageHeader?: string
+}
+
+
+interface Issuer {
+  did: string
+  url: string
+}
+export interface SelectiveDisclosureRequest {
+  issuer: string
+  subject?: string
+  replyUrl?: string
+  tag?: string
+  claims: CredentialRequestInput[]
+  credentials?: string[]
+}
+
+export interface CredentialRequestInput {
+  reason?: string
+  essential?: boolean
+  credentialType?: string
+  credentialContext?: string
+  claimType: string
+  claimValue?: string
+  issuers?: Issuer[]
 }

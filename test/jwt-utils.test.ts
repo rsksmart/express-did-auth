@@ -53,7 +53,7 @@ describe('JWT Utils', () => {
       const { signer, issuer } = await verifyJWT(jwt, { resolver, audience: serviceUrl })
 
       // eslint-disable-next-line dot-notation
-      expect(signer['type']).toEqual('Secp256k1VerificationKey2018')
+      expect(signer['type']).toEqual('EcdsaSecp256k1RecoveryMethod2020')
       // eslint-disable-next-line dot-notation
       expect(signer['controller']).toEqual(issuerIdentity.did)
 

@@ -44,7 +44,9 @@ export const identityFactory = (): { identity: Identity, privateKey: string } =>
   const hdKey = seedToRSKHDKey(seed)
 
   const privateKey = hdKey.derive(0).privateKey.toString('hex')
-  return { identity: rskDIDFromPrivateKey()(privateKey), privateKey }
+  const identity = rskDIDFromPrivateKey()(privateKey)
+  identity.did = identity.did.toLowerCase()
+  return { identity, privateKey }
 }
 
 export type ChallengeResponse = { did: string, sig: string, sd?: SelectiveDisclosureResponse }
@@ -70,11 +72,11 @@ export const challengeResponseFactory = (
   return { did: issuer.did, sig: toRpcSig(ecdsaSignature.v, ecdsaSignature.r, ecdsaSignature.s), sd }
 }
 
-export const getMockedAppState = (did?: string, counterConfig?: RequestCounterConfig, sessionConfig?: UserSessionConfig): { state: AppState, refreshToken: string} => {
+export const getMockedAppState = (did?: string, counterConfig?: RequestCounterConfig, sessionConfig?: UserSessionConfig): { state: AppState, refreshToken: string } => {
   let refreshToken: string
   const state: AppState = {
-    sessions: { },
-    refreshTokens: { }
+    sessions: {},
+    refreshTokens: {}
   }
 
   if (did) {
@@ -91,13 +93,13 @@ export const getMockedAppState = (did?: string, counterConfig?: RequestCounterCo
   return { state, refreshToken }
 }
 
-export function testChallengeInResponse (response: any) {
+export function testChallengeInResponse(response: any) {
   const challenge = response.body.challenge
   expect(challenge).toBeTruthy()
   return challenge
 }
 
-export function testAuthenticationResponseForUser (userDid: string) {
+export function testAuthenticationResponseForUser(userDid: string) {
   return function (response: any) {
     // tokens in set-cookie header
     const tokens = response.headers['set-cookie']
@@ -115,10 +117,10 @@ export function testAuthenticationResponseForUser (userDid: string) {
 const removeExtraCookieAttributes = (cookie: string) => cookie.substr(0, cookie.indexOf('; Path=/'))
 
 // gets csrf token from set-cookie header
-export function getCSRFTokenFromResponse (response: any) {
+export function getCSRFTokenFromResponse(response: any) {
   return response.header['x-csrf-token']
 }
 
-export function getAccessTokenHeader (tokens: string[]) {
+export function getAccessTokenHeader(tokens: string[]) {
   return `${removeExtraCookieAttributes(tokens[0])}; ${removeExtraCookieAttributes(tokens[1])}`
 }

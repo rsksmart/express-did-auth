@@ -1,10 +1,9 @@
 import { createJWT } from 'did-jwt'
 import { ChallengeVerifier } from '../classes/challenge-verifier'
 import { INVALID_DID } from '../errors'
-import { SignupConfig } from '../types'
-import { SelectiveDisclosureRequest } from 'daf-selective-disclosure'
+import { SelectiveDisclosureRequest, SignupConfig } from '../types'
 
-export function requestSignupFactory (challengeVerifier: ChallengeVerifier, signupConfig: SignupConfig) {
+export function requestSignupFactory(challengeVerifier: ChallengeVerifier, signupConfig: SignupConfig) {
   return async function (req, res) {
     const { did } = req.params
 
